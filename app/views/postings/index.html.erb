@@ -1,0 +1,31 @@
+<h1>Listing postings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Sender</th>
+      <th>Reciever</th>
+      <th>Message</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @postings.each do |posting| %>
+      <tr>
+        <td><%= posting.sender %></td>
+        <td><%= posting.reciever %></td>
+        <td><%= posting.message %></td>
+        <td><%= link_to 'Show', posting %></td>
+        <td><%= link_to 'Edit', edit_posting_path(posting) %></td>
+        <td><%= link_to 'Destroy', posting, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Posting', new_posting_path %>
